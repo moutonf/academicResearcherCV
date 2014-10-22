@@ -1,0 +1,18 @@
+%% start of file `cvitem_moderncvclassic.tex'.
+%% Copyright 2014 Francois Mouton (moutonf@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    .\strut%
+    \ifx&#7&%
+      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}%  Changing the cvitem style back to the style found in moderncvstyleclassic.sty.
+      
+%% end of file `cvitem_moderncvclassic.tex'.
