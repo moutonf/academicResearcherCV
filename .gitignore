@@ -4,3 +4,8 @@
 *.log
 *.out
 main-blx.bib
+*.bcf
+*.bbl
+*.blg
+*.dvi
+
