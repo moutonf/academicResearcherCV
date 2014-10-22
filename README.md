@@ -12,10 +12,10 @@ This template integrates the following packages:
 
 # How to build
 
-pdflatex main.tex
-biber main.bcf
-pdflatex main.tex
-pdflatex main.tex
+pdflatex main.tex <br />
+biber main.bcf <br />
+pdflatex main.tex <br />
+pdflatex main.tex <br />
 
 # HTML Version
 
