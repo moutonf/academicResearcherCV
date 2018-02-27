@@ -10,7 +10,7 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,a4paper,sans]{moderncv/moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
 \moderncvstyle{classic}                             % Only the 'classic' style is fully functional with the modifications made. The other options, 'casual' (default), 'oldstyle' and 'banking' has minor typesetting problems with the current modifications.
@@ -52,8 +52,10 @@
     sorting=ydnt]{biblatex}                         % Sorting in reverse order
 
 \addbibresource{cvreferences.bib}                   % Include your bibtex file here. Format: fileName.bib
+\addbibresource{cvprojects.bib}                     % Include your bibtex projects file here. Format: fileName.bib
 
-\input{biblatex_modifications/standard_modification.tex}        % Modifying the default standard.tex style of Biblatex. This modification is performed to include the moderntimeline package.
+\input{biblatex_modifications/standard_modification.tex}       % Modifying the default standard.tex style of Biblatex. This modification is performed to include the moderntimeline package.
+\input{biblatex_modifications/project_modification.tex}        % Modifying the default standard.tex style of Biblatex. This modification is performed to include the moderntimeline package.
 
 %-------------------Defining a CV Reference column style and a CV reference entry block-------------------
 
@@ -253,6 +255,28 @@ Main Duties:%
 \printbibliography[type=thesis,title={Thesis}]
 
 \input{cvitem_modifications/cvitem_moderncvclassic} % Reverting changes to cvitem.
+
+%-------------------Projects Section----------------------------------------------------------------
+% The cvitem commands needs to be altered to correctly print all projects with the moderntime package.
+% The cvitem command is edited to remove all forced punctuation within the command.
+% All the typesetting of the text is handled by the modified Biblatex style.
+
+\input{cvitem_modifications/cvitem_modified}        % Removing forced punctuation from cvitem
+
+\nocite{*}                                          % Print all publications.
+
+% Format:  \printbibliography[type=Biblatex type,title={Title of publication}]
+% Example: \printbibliography[type=article,title={Journal Publications}]
+% Example: \printbibliography[type=inproceedings,title={Conference Publications}]
+% Example: \printbibliography[type=thesis,title={Thesis}]
+
+\printbibliography[type=project,title={Projects}]
+%\printbibliography[type=inproceedings,title={Conference Publications}]
+%\printbibliography[type=thesis,title={Thesis}]
+
+\input{cvitem_modifications/cvitem_moderncvclassic} % Reverting changes to cvitem.
+
+
 
 %-------------------References Section------------------------------------------------------------------
 

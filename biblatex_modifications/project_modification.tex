@@ -1,0 +1,63 @@
+%% start of file `project_modifications.tex'.
+%% Copyright 2018 David F. Barrero, based on
+%% the file 'standard_modifications.tex' by 
+%% Francois Mouton (moutonf@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+% The project entry is based on the
+% classical 'misc' entry. Use the misc fields
+% to format your projects
+
+% remove brackets from year
+\xpatchbibmacro{date+extrayear}{%
+  \printtext[parens]}{\printtext}{}{}
+
+% remove year from the author bibmacro
+\xpatchbibmacro{author}{%
+ \usebibmacro{date+extrayear}}
+ {}{}{}
+
+  \DeclareBibliographyDriver{project}{%
+  \tldatecventry{
+  \thefield{year} % actual year from bibitem
+  }
+  {
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
+  \printfield{howpublished}%
+  \newunit\newblock
+  \printfield{type}%
+  \newunit
+  \printfield{version}%
+  \newunit
+  \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{organization+location+date}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}{}{}{}}
+
+
+%% end of file `project_modification.tex'.
